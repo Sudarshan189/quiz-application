@@ -1,0 +1,23 @@
+.custom-question {
+  margin: 3%;
+}
+
+.custom-options {
+  margin: 3%;
+  text-align: center;
+}
+
+.custom-option-item {
+  margin: 2%;
+  cursor: pointer;
+}
+
+.custom-question-nav {
+  margin: 2%;
+}
+
+.custome-startquiz-bar {
+  margin: 2%;
+  align-content: center;
+  float: center;
+}

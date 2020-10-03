@@ -1,0 +1,64 @@
+
+<div *ngIf="!quizStatus" class="custome-startquiz-bar">
+  <div class="card text-center">
+    <div class="card-body">
+      <h5 class="card-title">Rules</h5>
+      <p class="card-text">Number of questions
+        <select [(ngModel)]="questionAmount">
+        <option value='10'>10</option>
+        <option value='20'>20</option>
+        <option value='30'>30</option>
+        <option value='40'>40</option>
+        <option value='50'>50</option>
+        <option value='100'>100</option>
+      </select>
+       and difficulty
+      <select [(ngModel)]="dificulty">
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+      </select>
+      and category of type
+      <select [(ngModel)]="catogory">
+        <option value="17">Science and Nature</option>
+        <option value="19">Mathmetics</option>
+      </select>. Each question will be given 10 seconds.
+      </p>
+      <button class="btn btn-primary" (click)="startQuiz()">Start Quiz</button>
+    </div>
+  </div>
+</div>
+<div *ngIf="quizStatus">
+  <div class="card custom-question">
+    <div class="card-body">
+      Q{{question.slnumber}} &nbsp; {{question.question}}
+    </div>
+    <div class="progress" style="height: 15px;">
+      <div class="progress-bar progress-bar-striped" role="progressbar" [ngStyle]="{'width': timelapsed*(100/question.timegiven) +'%'}" aria-valuenow="25" aria-valuemin="0" aria-valuemax="500">{{timelapsed}}%</div>
+    </div>
+  </div>
+
+  <div class="row custom-options">
+    <div *ngFor="let option of question.options" class="col-md-5 mx-auto" (click)="onOptionSelection(option)">
+      <div class="card custom-option-item" [ngClass]="option.selected==1 ? 'bg-primary text-white': ''"
+      [ngClass]="option.selected==2 ? 'bg-success text-white': ''" [ngClass]="option.selected==3 ? 'bg-danger text-white': ''">
+        <div class="card-body">
+          <p class="card-text">{{option.content}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row custom-question-nav">
+    <div class="col-md-2 mx-auto">
+
+    </div>
+    <div class="col-md-8"></div>
+    <div class="col-md-2">
+      <div class="btn btn-primary mx-auto" (click)="showQuestion()">Next</div>
+    </div>
+  </div>
+
+</div>
+
+

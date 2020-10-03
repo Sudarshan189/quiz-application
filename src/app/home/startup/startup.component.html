@@ -1,0 +1,28 @@
+<div class="card text-center">
+  <div class="card-body">
+    <h5 class="card-title">Rules</h5>
+    <p class="card-text">Number of questions
+      <select [(ngModel)]="questionAmount">
+      <option value='10'>10</option>
+      <option value='20'>20</option>
+      <option value='30'>30</option>
+      <option value='40'>40</option>
+      <option value='50'>50</option>
+      <option value='100'>100</option>
+    </select>
+     and difficulty
+    <select [(ngModel)]="dificulty">
+      <option value="easy">Easy</option>
+      <option value="medium">Medium</option>
+      <option value="hard">Hard</option>
+    </select>
+    and category of type
+    <select [(ngModel)]="catogory">
+      <option value="17">Science and Nature</option>
+      <option value="19">Mathmetics</option>
+    </select>. Each question will be given 10 seconds.
+    </p>
+    <button class="btn btn-primary" [routerLink]="['/quize']"
+    [queryParams]="{questionAmount: questionAmount,dificulty: dificulty,catogory: catogory}">Start Quiz</button>
+  </div>
+  </div>
